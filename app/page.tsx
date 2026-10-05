@@ -94,7 +94,7 @@ export default function Home() {
             </svg>
             <h2 className="text-xl font-semibold">Your photo never leaves your device</h2>
             <p className="text-ink/70">
-              Your flyer is created right here in your browser. Nothing is uploaded, stored or collected.
+              Your flyer is created right here in your browser and your photo is never uploaded. Only your name and address are saved when you download.
             </p>
           </div>
         </section>

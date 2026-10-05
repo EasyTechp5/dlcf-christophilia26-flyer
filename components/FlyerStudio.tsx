@@ -132,6 +132,13 @@ export default function FlyerStudio() {
       a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 4000);
       setStatus("Your flyer has been downloaded.");
+      // Record the entry; never block or fail the download because of it.
+      fetch("/api/submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name.trim(), address: address.trim() }),
+        keepalive: true,
+      }).catch(() => {});
     } catch {
       setStatus("Something went wrong creating your flyer. Please try again.");
     } finally {
@@ -350,6 +357,10 @@ export default function FlyerStudio() {
                 Reset
               </button>
             </div>
+            <p className="text-xs leading-relaxed text-ink/60">
+              Your photo stays on your device. When you download, your name and address (and your approximate
+              city) are saved so the {config.brandName} team can see who is joining.
+            </p>
             <p role="status" aria-live="polite" className="min-h-5 text-sm font-medium text-green-800">
               {status}
             </p>
