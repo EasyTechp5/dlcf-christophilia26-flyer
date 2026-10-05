@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #d2461a;
+  --color-primary-dark: #b33a12;
+  --color-gold: #f5b921;
+  --color-ink: #1f1208;
+  --color-cream: #fff8ec;
+  --font-display: var(--font-display-raw), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-body-raw), system-ui, sans-serif;
+}
+
+/* Exposed so the canvas renderer can use the self-hosted font families. */
+body {
+  --font-display: var(--font-display-raw), "Arial Narrow", sans-serif;
+  --font-body: var(--font-body-raw), system-ui, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
